@@ -6,3 +6,13 @@
 * Description: Write a program that determines the pass or fail of the course.
 */ 
 
+#include <stdio.h>
+#include "assessGrade.h"
+
+int main(void)
+{
+
+
+
+	return 0;
+}
