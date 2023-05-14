@@ -1,0 +1,3 @@
+﻿  assessGrade.cpp
+D:\C_Lecture\Github\OOP_assign1\OOP_assign1\assessGrade.cpp(19,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  OOP_assign1.vcxproj -> D:\C_Lecture\Github\OOP_assign1\x64\Debug\OOP_assign1.exe
