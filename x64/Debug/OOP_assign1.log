@@ -1,3 +1,5 @@
 ﻿  assessGrade.cpp
 D:\C_Lecture\Github\OOP_assign1\OOP_assign1\assessGrade.cpp(19,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\C_Lecture\Github\OOP_assign1\OOP_assign1\assessGrade.cpp(39,12): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 2 has type 'int'
+D:\C_Lecture\Github\OOP_assign1\OOP_assign1\assessGrade.cpp(39,12): warning C4313: 'printf': '%s' in format string conflicts with argument 2 of type 'int'
   OOP_assign1.vcxproj -> D:\C_Lecture\Github\OOP_assign1\x64\Debug\OOP_assign1.exe
