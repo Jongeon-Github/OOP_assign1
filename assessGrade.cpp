@@ -36,40 +36,19 @@ void assessGrade(const char* letterGrade)
         grade[0] = toupper(letterGrade[0]);
         grade[1] = '\0';
     }
-    printf("len :  %d grade :   %s", len, grade[1]);
+
     if (len == 1)
     {
         switch (grade[0])
         {
-              case 'A':
-                 if (grade[1] == '+')
-                 {
-                     printf("Student achieved 95.00 %% which is a PASS condition.\n");
-                 }
-                 else
-                 {
-                      printf("Student achieved 85.00 %% which is a PASS condition.\n");
-                 }
-                break;
+        case 'A':
+            printf("Student achieved 85.00 %% which is a PASS condition.\n");
+            break;
         case 'B':
-            if (grade[1] == '+')
-            {
-                printf("Student achieved 77.00 %% which is a PASS condition.\n");
-            }
-            else
-            {
-                printf("Student achieved 72.00 %% which is a PASS condition.\n");
-            }
+            printf("Student achieved 72.00 %% which is a PASS condition.\n");
             break;
         case 'C':
-            if (grade[1] == '+')
-            {
-                printf("Student achieved 67.00 %% which is a PASS condition.\n");
-            }
-            else
-            {
-                printf("Student achieved 62.00 %% which is a PASS condition.\n");
-            }
+            printf("Student achieved 62.00 %% which is a PASS condition.\n");
             break;
         case 'D':
             printf("Student achieved 57.00 %% which is a PASS condition.\n");
@@ -94,8 +73,45 @@ void assessGrade(const char* letterGrade)
         {
         case 'A':
             if (grade[1] == 'U')
+            {
                 printf("Student has Special Situation : AU (Audit Condition)\n");
                 break;
+            }
+            else if (grade[1] == '+')
+            {
+                printf("Student achieved 95.00 %% which is a PASS condition.\n");
+                break;
+            }
+            else
+            {
+                printf("¡°**ERROR : Invalid Input\n");
+                break;
+            }
+        case 'B':
+            if (grade[1] == '+')
+            {
+                printf("Student achieved 77.00 %% which is a PASS condition.\n");
+                break;
+            }
+            else
+            {
+                printf("¡°**ERROR : Invalid Input\n");
+                break;
+            }
+        case 'C':
+            if (grade[1] == '+')
+            {
+                printf("Student achieved 67.00 %% which is a PASS condition.\n");
+                break;
+            }
+            else
+            {
+                printf("¡°**ERROR : Invalid Input\n");
+                break;
+            }
+        default:
+            printf("¡°**ERROR : Invalid Input\n");
+            break;
         }
     }
     else if ( len == 3 )
