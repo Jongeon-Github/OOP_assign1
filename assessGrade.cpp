@@ -19,22 +19,32 @@
 * Return Value: nothing
 */
 
-void assessGrade(const char* letterGrade)
+void assessGrade(char* letterGrade)
 {
     const int kCharMax = 80;
     char grade[kCharMax] = { 0 };
     int len = strlen(letterGrade);
+    double estGrade = -1.0;
 
     if (len == 1)
     {
         grade[0] = toupper(letterGrade[0]);
         grade[1] = '\0';
     }
-    else if (len == 2 && letterGrade[1] == '+')
+    else if (len == 2)
     {
-        grade[0] = toupper(letterGrade[0]);
-        grade[1] = '+';
-        grade[2] = '\0';
+        if (letterGrade[1] == '+')
+        {
+            grade[0] = toupper(letterGrade[0]);
+            grade[1] = '+';
+            grade[2] = '\0';
+        }
+        else
+        {
+            grade[0] = toupper(letterGrade[0]);
+            grade[1] = toupper(letterGrade[1]);
+            grade[2] = '\0';
+        }
     }
     else if (len == 3)
     {
@@ -49,24 +59,26 @@ void assessGrade(const char* letterGrade)
         switch (grade[0])
         {
         case 'A':
-            printf("Student achieved 85.00 %% which is a PASS condition.\n");
+            estGrade = 85.00;
             break;
         case 'B':
-            printf("Student achieved 72.00 %% which is a PASS condition.\n");
+            estGrade = 72.00;
             break;
         case 'C':
-            printf("Student achieved 62.00 %% which is a PASS condition.\n");
+            estGrade = 62.00;
             break;
         case 'D':
-            printf("Student achieved 57.00 %% which is a PASS condition.\n");
+            estGrade = 57.00;
             break;
         case 'F':
-            printf("Student achieved 50.00 %% which is a FAIL condition.\n");
+            estGrade = 50.00;
             break;
         case 'I':
+            estGrade = -1.0;
             printf("Student has Special Situation : I (Incomplete)\n");
             break;
         case 'Q':
+            estGrade = -1.0;
             printf("Student has Special Situation : Q (Withdrawal After Drop/Refund Date)\n");
             break;
         default:
@@ -81,12 +93,13 @@ void assessGrade(const char* letterGrade)
         case 'A':
             if (grade[1] == 'U')
             {
+                estGrade = -1.0;
                 printf("Student has Special Situation : AU (Audit Condition)\n");
                 break;
             }
             else if (grade[1] == '+')
             {
-                printf("Student achieved 95.00 %% which is a PASS condition.\n");
+                estGrade = 95.00;
                 break;
             }
             else
@@ -97,7 +110,7 @@ void assessGrade(const char* letterGrade)
         case 'B':
             if (grade[1] == '+')
             {
-                printf("Student achieved 77.00 %% which is a PASS condition.\n");
+                estGrade = 77.00;
                 break;
             }
             else
@@ -108,7 +121,7 @@ void assessGrade(const char* letterGrade)
         case 'C':
             if (grade[1] == '+')
             {
-                printf("Student achieved 67.00 %% which is a PASS condition.\n");
+                estGrade = 67.00;
                 break;
             }
             else
@@ -127,11 +140,13 @@ void assessGrade(const char* letterGrade)
         {
         case 'D':
             if (grade[1] == 'N' && grade[2] == 'A')
-            printf("Student has Special Situation : DNA (Did Not Attend)\n");
+                estGrade = -1.0;
+                printf("Student has Special Situation : DNA (Did Not Attend)\n");
             break;
         case 'I':
             if (grade[1] == '/' && grade[2] == 'P')
-            printf("Student has Special Situation : I/P (In Process)\n");
+                estGrade = -1.0;
+                printf("Student has Special Situation : I/P (In Process)\n");
             break;
         default:
             printf("¡°**ERROR : Invalid Input\n");
@@ -142,6 +157,10 @@ void assessGrade(const char* letterGrade)
     else if (len >= 4)
     {
         printf("¡°**ERROR : Invalid Input\n");
+    }
+    if (estGrade != -1)
+    {
+        assessGrade(estGrade);
     }
 }
 
@@ -203,7 +222,7 @@ void assessGrade(int arrGrade[])
         }
     }
     
-    aveGrade = aveGrade / kArrConout;
+    aveGrade /= kArrConout;
 
     if (aveGrade >= kPassScore)
     {

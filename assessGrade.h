@@ -6,6 +6,6 @@
 * Description: This is headerfile for assign1.cpp
 */
 
-void assessGrade(const char* letterGrade);
+void assessGrade(char* letterGrade);
 void assessGrade(double doubleGrade);
 void assessGrade(int arrGrade[]);
