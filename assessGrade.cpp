@@ -82,7 +82,7 @@ void assessGrade(char* letterGrade)
             printf("Student has Special Situation : Q (Withdrawal After Drop/Refund Date)\n");
             break;
         default:
-            printf("¡°**ERROR : Invalid Input\n");
+            printf("**ERROR : Invalid Input\n");
             break;
         }
     }
@@ -104,7 +104,7 @@ void assessGrade(char* letterGrade)
             }
             else
             {
-                printf("¡°**ERROR : Invalid Input\n");
+                printf("**ERROR : Invalid Input\n");
                 break;
             }
         case 'B':
@@ -115,7 +115,7 @@ void assessGrade(char* letterGrade)
             }
             else
             {
-                printf("¡°**ERROR : Invalid Input\n");
+                printf("**ERROR : Invalid Input\n");
                 break;
             }
         case 'C':
@@ -126,11 +126,11 @@ void assessGrade(char* letterGrade)
             }
             else
             {
-                printf("¡°**ERROR : Invalid Input\n");
+                printf("**ERROR : Invalid Input\n");
                 break;
             }
         default:
-            printf("¡°**ERROR : Invalid Input\n");
+            printf("**ERROR : Invalid Input\n");
             break;
         }
     }
@@ -149,14 +149,14 @@ void assessGrade(char* letterGrade)
                 printf("Student has Special Situation : I/P (In Process)\n");
             break;
         default:
-            printf("¡°**ERROR : Invalid Input\n");
+            printf("**ERROR : Invalid Input\n");
             break;
         }
 
     }
     else if (len >= 4)
     {
-        printf("¡°**ERROR : Invalid Input\n");
+        printf("**ERROR : Invalid Input\n");
     }
     if (estGrade != -1)
     {
@@ -189,7 +189,7 @@ void assessGrade(double doubleGrade)
     }
     else
     {
-        printf("¡°**ERROR : Invalid Input\n");
+        printf("**ERROR : Invalid Input\n");
     }
 }
 
@@ -217,7 +217,7 @@ void assessGrade(int arrGrade[])
         }
         else
         {
-            printf("¡°**ERROR : Invalid Input\n");
+            printf("**ERROR : Invalid Input\n");
             return;
         }
     }

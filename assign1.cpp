@@ -30,8 +30,6 @@ int main(void)
     int arrInputs[kArr] = { 0 };
     char grade[MAX_CHARACTER_LEN] = "0";
     char fileName[MAX_CHARACTER_LEN] = "\0";
-    char fileLowwerExtention[MAX_CHARACTER_LEN] = ".txt";
-    char fileUpperExtention[MAX_CHARACTER_LEN] = ".TXT";
     char* userInput = NULL;
     double doubleInput = 0.0;
 
@@ -39,7 +37,7 @@ int main(void)
 
     if (fgets(grade, MAX_CHARACTER_LEN, stdin) == NULL)
     {
-        printf("¡°**ERROR : Invalid Input\n");
+        printf("**ERROR : Invalid Input\n");
         return -1;
     }
     grade[strlen(grade) - 1] = '\0';
@@ -52,21 +50,13 @@ int main(void)
     {
         sscanf(grade, "%*s %s", fileName);
         strcpy(grade, fileName);
-        
-        char* ptrLowwer = strstr(fileName, fileLowwerExtention);
-        char* ptrUpper = strstr(fileName, fileUpperExtention);
-        if (ptrLowwer == NULL && ptrUpper == NULL)
-        {
-            printf("¡°**ERROR : Invalid Input\n");
-            return -3;
-        }
 
         FILE* fp = NULL;
         fp = fopen(fileName, "r");
         if (fp == NULL)
         {
-            printf("¡°**ERROR : Invalid Input\n");
-            return -4;
+            printf("**ERROR : Invalid Input\n");
+            return -3;
         }
         char data[MAX_DATA_LEN] = { '\0' };
         char* pLinePos = NULL;
@@ -82,9 +72,9 @@ int main(void)
         }
         if (fclose(fp) != NULL)
         {
-            printf("¡°**ERROR : Invalid Input\n");
+            printf("**ERROR : Invalid Input\n");
         }
-        return -5;
+        return -4;
     }
 
     parseUserInput(grade);
@@ -124,7 +114,7 @@ void parseUserInput(char* input)
     {
         if (strchr(input, '.') != NULL)
         {
-            printf("¡°**ERROR : Invalid Input\n");
+            printf("**ERROR : Invalid Input\n");
             return;
         }
         for (int i = 0; i < kArr; i++)
