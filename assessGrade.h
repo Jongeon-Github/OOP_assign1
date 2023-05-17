@@ -9,4 +9,3 @@
 void assessGrade(const char* letterGrade);
 void assessGrade(double doubleGrade);
 void assessGrade(int arrGrade[]);
-void parseUserInput(char* input);

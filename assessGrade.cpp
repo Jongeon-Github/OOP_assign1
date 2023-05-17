@@ -3,22 +3,34 @@
 * Project: OOP-assign1
 * By: Jongeon Lee
 * Date: May 20, 2023
-* Description: This is prototype cpp file for assign1.cpp
+* Description: This is prototype cpp files for assign1.cpp
 */
 
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include "assessGrade.h"
 
-#pragma warning(disable: 4996)
 
+/*
+* Function: void assessGrade(const char* letterGrade)
+* Description: This function will show the user a grade.
+* Parameter: const char* letterGrade: user input letter
+* Return Value: nothing
+*/
 
 void assessGrade(const char* letterGrade)
 {
-    char grade[4] = { 0 };
+    const int kCharMax = 80;
+    char grade[kCharMax] = { 0 };
     int len = strlen(letterGrade);
 
-    if (len == 2 && letterGrade[1] == '+')
+    if (len == 1)
+    {
+        grade[0] = toupper(letterGrade[0]);
+        grade[1] = '\0';
+    }
+    else if (len == 2 && letterGrade[1] == '+')
     {
         grade[0] = toupper(letterGrade[0]);
         grade[1] = '+';
@@ -30,11 +42,6 @@ void assessGrade(const char* letterGrade)
         grade[1] = toupper(letterGrade[1]);
         grade[2] = toupper(letterGrade[2]);
         grade[3] = '\0';
-    }
-    else
-    {
-        grade[0] = toupper(letterGrade[0]);
-        grade[1] = '\0';
     }
 
     if (len == 1)
@@ -114,7 +121,7 @@ void assessGrade(const char* letterGrade)
             break;
         }
     }
-    else if ( len == 3 )
+    else if (len == 3)
     {
         switch (grade[0])
         {
@@ -132,13 +139,24 @@ void assessGrade(const char* letterGrade)
         }
 
     }
+    else if (len >= 4)
+    {
+        printf("¡°**ERROR : Invalid Input\n");
+    }
 }
 
 
+/*
+* Function: void assessGrade(double doubleGrade)
+* Description: This function will show the user a grade.
+* Parameter: double doubleGrade: User input number
+* Return Value: nothing
+*/
 
 void assessGrade(double doubleGrade)
 {
-    double passScore = 54.5;
+    const double passScore = 54.5;
+
     if (doubleGrade >= 0.0 && doubleGrade <= 100.0)
     {
         if (doubleGrade >= passScore)
@@ -156,14 +174,25 @@ void assessGrade(double doubleGrade)
     }
 }
 
-void assessGrade(int arrGrade[5])
-{
-    double aveGrade = 0;
-    double passScore = 54.5;
 
-    for (int i = 0; i < 5; i++)
+/*
+* Function: void assessGrade(int arrGrade[])
+* Description: This function will show the user a grade.
+* Parameter: int arrGrade: User input numbers by an array.
+* Return Value: nothing
+*/
+
+void assessGrade(int arrGrade[])
+{
+    const double kArrConout = 5.0;
+    const double kPassScore = 54.5;
+    const double kPassScoreMin = 0.0;
+    const double kPassScoreMax = 100.0;
+    double aveGrade = 0;
+
+    for (int i = 0; i < kArrConout; i++)
     {
-        if (arrGrade[i] >= 0.0 || arrGrade[i] <= 100.0)
+        if (arrGrade[i] >= kPassScoreMin && arrGrade[i] <= kPassScoreMax)
         {
             aveGrade += arrGrade[i];
         }
@@ -174,9 +203,9 @@ void assessGrade(int arrGrade[5])
         }
     }
     
-    aveGrade = aveGrade / 5;
+    aveGrade = aveGrade / kArrConout;
 
-    if (aveGrade >= passScore)
+    if (aveGrade >= kPassScore)
     {
         printf("Student achieved %.2f %% which is a PASS condition.\n", aveGrade);
     }
@@ -185,33 +214,3 @@ void assessGrade(int arrGrade[5])
         printf("Student achieved %.2f %% which is a FAIL condition.\n", aveGrade);
     }
 }
-
-
-void parseUserInput(char* input)
-{
-    int returnValue = 0;
-    char* letterInput = NULL;
-    double doubleInput = 0.0;
-    double arrDoubleInput[5] = { 0.0 };
-    int arrInputs[5] = { 0 };
-
-    returnValue = sscanf(input, "%lf %lf %lf %lf %lf", &arrDoubleInput[0], &arrDoubleInput[1], &arrDoubleInput[2], &arrDoubleInput[3], &arrDoubleInput[4]);
-    doubleInput = arrDoubleInput[0];
-
-    if (returnValue == 0)
-    {
-        assessGrade(input);
-    }
-    else if(returnValue == 1)
-    {
-        assessGrade(doubleInput);
-    }
-    else if (returnValue >= 2 && returnValue <= 5)
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            arrInputs[i] = (int)arrDoubleInput[i];
-        }
-        assessGrade(arrInputs);
-    }
- }
