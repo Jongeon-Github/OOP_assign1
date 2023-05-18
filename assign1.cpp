@@ -5,10 +5,11 @@
 * Date: May 20, 2023
 * Description: Write a program that determines the pass or fail of the course.
 * Returns 
-*   -1: User enter the incorrecet input.
-*   -2: User enter the 'x' or 'X' for exiting the program.
+*    0: Code complete.
+*   -1: The user enters the incorrect input.
+*   -2: The user enters the 'x' or 'X' for exiting the program.
 *   -3: The file is not open.
-*   -4: The opened file is not close.
+*   -4: The opened file is not closed.
 */ 
 
 #include <stdio.h>
