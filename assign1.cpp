@@ -40,6 +40,7 @@ int main(void)
         printf("**ERROR : Invalid Input\n");
         return -1;
     }
+
     grade[strlen(grade) - 1] = '\0';
 
     if (grade[0] == 'x' || grade[0] == 'X')
@@ -53,32 +54,38 @@ int main(void)
 
         FILE* fp = NULL;
         fp = fopen(fileName, "r");
+
         if (fp == NULL)
         {
-            printf("**ERROR : Invalid Input\n");
+            printf("**ERROR : Can't open file for reading\n");
             return -3;
         }
+
         char data[MAX_DATA_LEN] = { '\0' };
         char* pLinePos = NULL;
         
         while (fgets(data, MAX_DATA_LEN, fp))
         {
             pLinePos = strchr(data, '\n');
+
             if (pLinePos != NULL)
             {
                 *pLinePos = '\0';
             }
+
             parseUserInput(data);
+
         }
         if (fclose(fp) != NULL)
         {
-            printf("**ERROR : Invalid Input\n");
+            printf("**ERROR : Can't close file opened for reading\n");
+            return -4;
         }
-        return -4;
     }
-
-    parseUserInput(grade);
-
+    else
+    {
+        parseUserInput(grade);
+    }
 	return 0;
 }
 
@@ -123,5 +130,4 @@ void parseUserInput(char* input)
         }
         assessGrade(arrInputs);
     }
-
 }

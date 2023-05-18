@@ -22,9 +22,10 @@
 void assessGrade(char* letterGrade)
 {
     const int kCharMax = 80;
+    const double kIgnore = -5.0;
     char grade[kCharMax] = { 0 };
     int len = strlen(letterGrade);
-    double estGrade = -1.0;
+    double estGrade = kIgnore;
 
     if (len == 1)
     {
@@ -74,11 +75,11 @@ void assessGrade(char* letterGrade)
             estGrade = 50.00;
             break;
         case 'I':
-            estGrade = -1.0;
+            estGrade = kIgnore;
             printf("Student has Special Situation : I (Incomplete)\n");
             break;
         case 'Q':
-            estGrade = -1.0;
+            estGrade = kIgnore;
             printf("Student has Special Situation : Q (Withdrawal After Drop/Refund Date)\n");
             break;
         default:
@@ -93,7 +94,7 @@ void assessGrade(char* letterGrade)
         case 'A':
             if (grade[1] == 'U')
             {
-                estGrade = -1.0;
+                estGrade = kIgnore;
                 printf("Student has Special Situation : AU (Audit Condition)\n");
                 break;
             }
@@ -140,12 +141,12 @@ void assessGrade(char* letterGrade)
         {
         case 'D':
             if (grade[1] == 'N' && grade[2] == 'A')
-                estGrade = -1.0;
+                estGrade = kIgnore;
                 printf("Student has Special Situation : DNA (Did Not Attend)\n");
             break;
         case 'I':
             if (grade[1] == '/' && grade[2] == 'P')
-                estGrade = -1.0;
+                estGrade = kIgnore;
                 printf("Student has Special Situation : I/P (In Process)\n");
             break;
         default:
@@ -158,7 +159,7 @@ void assessGrade(char* letterGrade)
     {
         printf("**ERROR : Invalid Input\n");
     }
-    if (estGrade != -1)
+    if (estGrade != kIgnore)
     {
         assessGrade(estGrade);
     }
