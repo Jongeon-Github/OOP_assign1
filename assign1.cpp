@@ -4,6 +4,11 @@
 * By: Jongeon Lee
 * Date: May 20, 2023
 * Description: Write a program that determines the pass or fail of the course.
+* Returns 
+*   -1: User enter the incorrecet input.
+*   -2: User enter the 'x' or 'X' for exiting the program.
+*   -3: The file is not open.
+*   -4: The opened file is not close.
 */ 
 
 #include <stdio.h>
@@ -57,7 +62,7 @@ int main(void)
 
         if (fp == NULL)
         {
-            printf("**ERROR : Can't open file for reading\n");
+            printf("**ERROR : Can't open the file\n");
             return -3;
         }
 
@@ -78,7 +83,7 @@ int main(void)
         }
         if (fclose(fp) != NULL)
         {
-            printf("**ERROR : Can't close file opened for reading\n");
+            printf("**ERROR : Can't close the file opened\n");
             return -4;
         }
     }

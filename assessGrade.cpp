@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 #include "assessGrade.h"
 
 
@@ -175,11 +176,11 @@ void assessGrade(char* letterGrade)
 
 void assessGrade(double doubleGrade)
 {
-    const double passScore = 54.5;
+    const double kPassScore = 54.495;
 
     if (doubleGrade >= 0.0 && doubleGrade <= 100.0)
     {
-        if (doubleGrade >= passScore)
+        if (doubleGrade >= kPassScore)
         {
             printf("Student achieved %.2f %% which is a PASS condition.\n", doubleGrade);
         }
