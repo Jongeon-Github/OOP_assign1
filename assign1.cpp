@@ -4,7 +4,7 @@
 * By: Jongeon Lee
 * Date: May 20, 2023
 * Description: Write a program that determines the pass or fail of the course.
-* Returns 
+* Returns .
 *    0: Code complete.
 *   -1: The user enters the incorrect input.
 *   -2: The user enters the 'x' or 'X' for exiting the program.
