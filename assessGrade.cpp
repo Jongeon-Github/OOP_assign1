@@ -142,14 +142,28 @@ void assessGrade(char* letterGrade)
         {
         case 'D':
             if (grade[1] == 'N' && grade[2] == 'A')
+            {
                 estGrade = kIgnore;
                 printf("Student has Special Situation : DNA (Did Not Attend)\n");
-            break;
+                break;
+            }
+            else
+            {
+                printf("**ERROR : Invalid Input\n");
+                break;
+            }
         case 'I':
             if (grade[1] == '/' && grade[2] == 'P')
+            {
                 estGrade = kIgnore;
                 printf("Student has Special Situation : I/P (In Process)\n");
-            break;
+                break;
+            }
+            else
+            {
+                printf("**ERROR : Invalid Input\n");
+                break;
+            }
         default:
             printf("**ERROR : Invalid Input\n");
             break;
