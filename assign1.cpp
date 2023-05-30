@@ -34,8 +34,8 @@ int main(void)
     const int kArr = 5;
     int i = 0; // counter
     int arrInputs[kArr] = { 0 };
-    char grade[MAX_CHARACTER_LEN] = "0";
-    char fileName[MAX_CHARACTER_LEN] = "\0";
+    char grade[MAX_CHARACTER_LEN] = { '\0' };
+    char fileName[MAX_CHARACTER_LEN] = { '\0' };
     char* userInput = NULL;
     double doubleInput = 0.0;
 
@@ -106,7 +106,7 @@ int main(void)
 void parseUserInput(char* input)
 {
     const int kArr = 5;
-    char fileName[MAX_CHARACTER_LEN] = "\0";
+    char fileName[MAX_CHARACTER_LEN] = { '\0' };
     int arrInputs[kArr] = { 0 };
     int returnValue = 0;
     double arrDoubleInput[kArr] = { 0.0 };
